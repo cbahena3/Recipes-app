@@ -11,7 +11,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
 
   test "create" do
     assert_difference "Recipe.count", 1 do
-      post "/recipes.json", params: { name: "lake", width: 800, height: 600 }
+      post "/recipes.json", params: { name: "lake", image: 800, description: 600, ingredients: 'rflnefw', instructions:'dfjsk' }
       assert_response 200
     end
   end
