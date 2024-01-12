@@ -4,6 +4,11 @@ class RecipesController < ApplicationController
     render :index
   end
 
+  def show
+    @recipe = Recipe.find_by(id: params[:id])
+    render :show
+  end
+
   def create
     @recipe = Recipe.create(
       name: params[:name],

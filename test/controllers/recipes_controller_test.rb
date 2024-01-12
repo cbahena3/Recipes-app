@@ -16,4 +16,12 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "show" do
+    get "/recipes/#{Recipe.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["id", "name", "image", "description", "ingredients", "instructions"], data.keys
+  end
+
 end
