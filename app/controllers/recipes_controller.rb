@@ -20,4 +20,16 @@ class RecipesController < ApplicationController
     render :show
   end
 
+  def update
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe.update(
+      name: params[:name] || @recipe.name,
+      image: params[:image] || @recipe.image,
+      description: params[:description] || @recipe.description,
+      ingredients: params[:ingredients] || @recipe.ingredients,
+      instructions: params[:instructions] || @recipe.instructions,
+    )
+    render :show
+  end
+
 end
