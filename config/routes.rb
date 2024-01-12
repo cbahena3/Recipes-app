@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   patch "/recipes/:id" => "recipes#update"
   delete "/recipes/:id" => "recipes#destroy"
 
-  #users model
+  #users model (signup)
   post "/users" => "users#create"
+
+  #sessions model (login)
+  post "/sessions" => "sessions#create"
 end
