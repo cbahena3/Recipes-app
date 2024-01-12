@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete "/recipes/:id" => "recipes#destroy"
 
   #users model (signup)
+  get "/users" => "users#index"
   post "/users" => "users#create"
 
   #sessions model (login)
