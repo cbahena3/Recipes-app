@@ -11,7 +11,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
 
   test "create" do
     assert_difference "Recipe.count", 1 do
-      post "/recipes.json", params: { name: "lake", image: 800, description: 600, ingredients: 'rflnefw', instructions:'dfjsk' }
+      post "/recipes.json", params: { name: "lake", image: 800, description: 600, ingredients: 'rflnefw', instructions:'dfjsk', user_id: 1}
       assert_response 200
     end
   end
@@ -21,7 +21,7 @@ class RecipesControllerTest < ActionDispatch::IntegrationTest
     assert_response 200
 
     data = JSON.parse(response.body)
-    assert_equal ["id", "name", "image", "description", "ingredients", "instructions"], data.keys
+    assert_equal ["id", "name", "image", "description", "ingredients", "instructions", "user_id"], data.keys
   end
 
   test "update" do
